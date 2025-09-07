@@ -1,4 +1,4 @@
-Plataforma IA – Frontend (Vue + Vuetify + Vite) ✨
+AIURIS – Frontend ✨
 
 📝 Descripción
 
