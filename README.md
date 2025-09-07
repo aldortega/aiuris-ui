@@ -1,5 +1,22 @@
-# aiuris-ui
+Plataforma IA – Frontend (Vue + Vuetify + Vite) ✨
 
-Frontend de la plataforma modular de servicios de IA para el Poder Judicial de la Provincia de Formosa. Este proyecto provee una SPA para autenticarse, cargar fuentes documentales, configurar prompts, conversar en tiempo real con agentes de IA y generar borradores con referencias trazables.
+📝 Descripción
 
-MVP: módulo de generación de documentación asistida (LLM + RAG), con chat vía WebSockets, autenticación JWT, gestión básica de usuarios y exportación de resultados.
+Frontend de la plataforma modular de servicios de IA para el Poder Judicial de la Provincia de Formosa. Permite autenticarse, cargar y gestionar documentos, configurar prompts, chatear en tiempo real con agentes de IA y generar borradores fundamentados mediante RAG (búsqueda semántica + LLM), con referencias trazables, edición y exportación.
+
+✨ Características
+
+🎨 UI con Vue + Vuetify: diseño responsivo, tema claro/oscuro y componentes accesibles.
+
+🔐 Autenticación JWT: access y refresh tokens, guards de ruta y roles básicos.
+
+📂 Gestión de fuentes: carga de documentos (drag & drop), validaciones y barra de progreso.
+
+💬 Chat en tiempo real: interacción con agentes de IA vía WebSockets (streaming y estados de tarea).
+
+🧠 Generación asistida (RAG): prompt + recuperación semántica → borrador con citas a las fuentes.
+
+✍️ Edición y exportación: vista previa, versionado básico y exportación a DOCX/PDF.
+
+🧭 Trazabilidad: identificación de fuentes, versiones y acciones visibles desde la UI.
+
