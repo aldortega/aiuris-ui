@@ -7,33 +7,18 @@ const email = ref('')
 const password = ref('')
 const auth = useAuthStore()
 const router = useRouter()
+const remember = ref(false)
 
 const showPassword = ref(false)
 
 
-const delay = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms))
 
-// Solo timeout para ver el loading/animación
 const onSubmit = async () => {
-  auth.error = ''
-  auth.loading = true
-  try {
-    await delay(2000) // ⏳ simula request 2s
-    // aquí no hacemos login ni push; solo la simulación
-  } catch (err) {
-    auth.error = 'No se pudo completar la acción. Intenta nuevamente.'
-    console.error(err)
-  } finally {
-    auth.loading = false
-  }
-}
-
-// const onSubmit = async () => {
-//    try {
-//      await auth.login(email.value, password.value)
-//      router.push('/')
-//    } catch {}
-//  }
+   try {
+     await auth.login(email.value, password.value)
+     router.push('/')
+   } catch {}
+ }
 
 
 
@@ -52,10 +37,11 @@ const onSubmit = async () => {
         <form class="mt-6 space-y-4 md:space-y-6" @submit.prevent="onSubmit">
           <div>
             <label for="email" class="block mb-2 text-sm font-medium text-gray-900">
-              Nombre de Usuario</label
+              Correo electrónico </label
             >
-            <input
+            <input id="email"
               type="email"
+              v-model="email"
               class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-aiuris focus:border-aiuris block w-full p-2.5"
               placeholder="nombre@gmail.com"
               required
@@ -67,9 +53,11 @@ const onSubmit = async () => {
               >Contraseña</label
             >
             <div class="relative">
-              <input
+              <input id="password"
+              v-model="password"
                 :type="showPassword ? 'text' : 'password'"
                 placeholder="••••••••"
+                autocomplete="current-password"
                 class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-aiuris focus:border-aiuris block w-full p-2.5"
               />
               <button
@@ -108,17 +96,18 @@ const onSubmit = async () => {
             </div>
           </div>
 
+
           <div class="flex items-center justify-between">
             <div class="flex items-start">
               <div class="flex items-center h-5">
-                <input
+                <input id="remember"
                   type="checkbox"
                   aria-describedby="remember"
-                  class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300"
+                  class="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 cursor-pointer"
                 />
               </div>
               <div class="ml-3 text-sm">
-                <label for="remember" class="text-gray-500">Recordarme</label>
+                <label for="remember" class="text-gray-500 cursor-pointer">Recordarme</label>
               </div>
             </div>
             <a href="#" class="text-sm font-medium text-aiuris hover:underline"
@@ -127,7 +116,7 @@ const onSubmit = async () => {
           </div>
           <button
             :disabled="auth.loading"
-            class="w-full text-white bg-aiuris hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center disabled:cursor-not-allowed disabled:opacity-50">
+            class="w-full text-white bg-aiuris hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-sm px-5 py-2.5 text-center cursor-pointer disabled:cursor-not-allowed disabled:opacity-50">
             <span v-if="!auth.loading">Iniciar Sesión</span>
             <span v-else class="inline-flex items-center gap-2">
               <svg class="size-4 animate-spin" viewBox="0 0 24 24" fill="none">
