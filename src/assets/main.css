@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Geist', sans-serif;
+  --color-aiuris: #2549b2;
+}
+html,
+body {
+  @apply font-sans;
+}
