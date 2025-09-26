@@ -24,6 +24,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/primer-inicio/cambiar-contrasena',
+      name: 'first-login-password',
+      component: () => import('@/views/FirstLoginPasswordView.vue'),
+      meta: { requiresAuth: true, allowFirstLogin: true },
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/views/LoginView.vue'),
@@ -39,6 +45,20 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   const auth = useAuthStore()
 
+  if (auth.isAuthenticated && auth.needsPasswordChange && !to.meta.allowFirstLogin) {
+    return next({ name: 'first-login-password' })
+  }
+
+  if (to.meta.allowFirstLogin) {
+    if (!auth.isAuthenticated) {
+      return next({ name: 'login' })
+    }
+
+    if (!auth.needsPasswordChange) {
+      return next({ name: 'home' })
+    }
+  }
+
   if (to.meta.requiresAuth && !auth.isAuthenticated) {
     return next({
       name: 'login',
@@ -47,6 +67,10 @@ router.beforeEach((to, from, next) => {
   }
 
   if (to.meta.guestOnly && auth.isAuthenticated) {
+    if (auth.needsPasswordChange) {
+      return next({ name: 'first-login-password' })
+    }
+
     return next({ name: 'home' })
   }
 

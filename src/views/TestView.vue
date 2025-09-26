@@ -191,8 +191,8 @@
 import { ref } from 'vue'
 
 // Form data
-const email = ref('afolabihamed@gmail.com')
-const password = ref('Loner5678036475qwt')
+const email = ref('asdasda@gmail.com')
+const password = ref('asdasdasd')
 const rememberMe = ref(false)
 const showPassword = ref(false)
 

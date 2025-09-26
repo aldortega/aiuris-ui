@@ -1,4 +1,4 @@
-import axios from 'axios'
+﻿import axios from 'axios'
 import type { AxiosRequestConfig } from 'axios'
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000'
@@ -7,6 +7,11 @@ export interface ApiErrorPayload {
   detail?: string
   message?: string
   [key: string]: unknown
+}
+
+export interface ApiError extends Error {
+  status?: number
+  payload?: unknown
 }
 
 export const apiClient = axios.create({
@@ -43,7 +48,11 @@ export async function apiFetch<TResponse>(
         message = statusText || (status ? `Solicitud rechazada (${status})` : error.message)
       }
 
-      throw new Error(message)
+      const apiError = new Error(message) as ApiError
+      apiError.status = error.response?.status
+      apiError.payload = data
+
+      throw apiError
     }
 
     throw error instanceof Error ? error : new Error('Solicitud rechazada')

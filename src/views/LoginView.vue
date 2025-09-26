@@ -1,11 +1,11 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRoute, useRouter } from 'vue-router'
 
 import { ACCESS_TOKEN_KEY, useAuthStore } from '@/stores/auth'
 
-const email = ref('')
+const username = ref('')
 const password = ref('')
 const showPassword = ref(false)
 const rememberMe = ref(
@@ -16,17 +16,26 @@ const router = useRouter()
 const route = useRoute()
 
 const auth = useAuthStore()
-const { loading, error, isAuthenticated } = storeToRefs(auth)
+const { loading, error, isAuthenticated, needsPasswordChange } = storeToRefs(auth)
 
 onMounted(() => {
   if (isAuthenticated.value) {
-    router.replace({ name: 'home' })
+    if (needsPasswordChange.value) {
+      router.replace({ name: 'first-login-password' })
+    } else {
+      router.replace({ name: 'home' })
+    }
   }
 })
 
 async function onSubmit() {
   try {
-    await auth.login(email.value, password.value, rememberMe.value)
+    await auth.login(username.value, password.value, rememberMe.value)
+
+    if (needsPasswordChange.value) {
+      await router.replace({ name: 'first-login-password' })
+      return
+    }
 
     const redirectTo = typeof route.query.redirect === 'string' ? route.query.redirect : null
 
@@ -53,28 +62,26 @@ async function onSubmit() {
 
         <form class="mt-6 space-y-4 md:space-y-6" @submit.prevent="onSubmit">
           <div>
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Usuarios</label>
+            <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Usuario</label>
             <input
-              id="email"
-              type="email"
-              v-model="email"
+              id="username"
+              type="text"
+              v-model="username"
               class="bg-gray-100 border border-gray-300 text-gray-900 rounded-lg focus:ring-aiuris focus:border-aiuris block w-full p-2.5"
-              placeholder="nombre@gmail.com"
-              autocomplete="email"
+              placeholder="nombre_usuario"
+              autocomplete="username"
               required
             />
           </div>
 
           <div>
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900"
-              >Contrasena</label
-            >
+            <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contrasena</label>
             <div class="relative">
               <input
                 id="password"
                 v-model="password"
                 :type="showPassword ? 'text' : 'password'"
-                placeholder="••••••••"
+                placeholder="********"
                 autocomplete="current-password"
                 class="bg-gray-100 border border-gray-300 text-gray-900 rounded-lg focus:ring-aiuris focus:border-aiuris block w-full p-2.5"
                 required
