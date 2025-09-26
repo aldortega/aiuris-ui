@@ -2,6 +2,7 @@
 import { ref, watchEffect } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useRouter } from 'vue-router'
+import { Eye, EyeOff, LoaderCircle } from 'lucide-vue-next'
 
 import { useAuthStore } from '@/stores/auth'
 
@@ -74,33 +75,8 @@ async function onSubmit() {
                 @click="showCurrentPassword = !showCurrentPassword"
                 class="absolute inset-y-0 right-0 flex items-center justify-center cursor-pointer w-9 text-slate-400 hover:text-slate-600"
               >
-                <svg
-                  v-if="!showCurrentPassword"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7Z"
-                  />
-                </svg>
-                <svg
-                  v-else
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M3 3l18 18M10.58 10.58a2 2 0 0 0 2.84 2.84M9.88 5.09A9.96 9.96 0 0 1 12 5c4.477 0 8.268 2.943 9.542 7a9.956 9.956 0 0 1-4.132 5.225M6.1 6.1A9.956 9.956 0 0 0 2.458 12c1.274 4.057 5.065 7 9.542 7 1.032 0 2.027-.156 2.96-.445"
-                  />
-                </svg>
+                <Eye v-if="!showCurrentPassword" class="size-4" />
+                <EyeOff v-else class="size-4" />
               </button>
             </div>
           </div>
@@ -124,33 +100,8 @@ async function onSubmit() {
                 @click="showNewPassword = !showNewPassword"
                 class="absolute inset-y-0 right-0 flex items-center justify-center cursor-pointer w-9 text-slate-400 hover:text-slate-600"
               >
-                <svg
-                  v-if="!showNewPassword"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7Z"
-                  />
-                </svg>
-                <svg
-                  v-else
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M3 3l18 18M10.58 10.58a2 2 0 0 0 2.84 2.84M9.88 5.09A9.96 9.96 0 0 1 12 5c4.477 0 8.268 2.943 9.542 7a9.956 9.956 0 0 1-4.132 5.225M6.1 6.1A9.956 9.956 0 0 0 2.458 12c1.274 4.057 5.065 7 9.542 7 1.032 0 2.027-.156 2.96-.445"
-                  />
-                </svg>
+                <Eye v-if="!showNewPassword" class="size-4" />
+                <EyeOff v-else class="size-4" />
               </button>
             </div>
           </div>
@@ -174,33 +125,8 @@ async function onSubmit() {
                 @click="showConfirmPassword = !showConfirmPassword"
                 class="absolute inset-y-0 right-0 flex items-center justify-center cursor-pointer w-9 text-slate-400 hover:text-slate-600"
               >
-                <svg
-                  v-if="!showConfirmPassword"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                  <path
-                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7Z"
-                  />
-                </svg>
-                <svg
-                  v-else
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="size-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M3 3l18 18M10.58 10.58a2 2 0 0 0 2.84 2.84M9.88 5.09A9.96 9.96 0 0 1 12 5c4.477 0 8.268 2.943 9.542 7a9.956 9.956 0 0 1-4.132 5.225M6.1 6.1A9.956 9.956 0 0 0 2.458 12c1.274 4.057 5.065 7 9.542 7 1.032 0 2.027-.156 2.96-.445"
-                  />
-                </svg>
+                <Eye v-if="!showConfirmPassword" class="size-4" />
+                <EyeOff v-else class="size-4" />
               </button>
             </div>
           </div>
@@ -216,23 +142,7 @@ async function onSubmit() {
           >
             <span v-if="!loading">Guardar y continuar</span>
             <span v-else class="inline-flex items-center gap-2">
-              <svg class="size-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  stroke-width="4"
-                  class="opacity-25"
-                />
-                <path
-                  d="M4 12a8 8 0 0 1 8-8"
-                  stroke="currentColor"
-                  stroke-width="4"
-                  stroke-linecap="round"
-                  class="opacity-75"
-                />
-              </svg>
+              <LoaderCircle class="size-4 animate-spin" />
               Guardando...
             </span>
           </button>
