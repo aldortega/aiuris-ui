@@ -1,39 +1,35 @@
-# frontend
+⚖️ AIURIS
 
-This template should help get you started developing with Vue 3 in Vite.
+AIURIS is an AI-powered platform for the judicial sector. Its main goal is to support professionals and institutions in jurisprudence search, automated legal document generation, and audio/video transcription, by integrating modern technologies such as Generative AI, vector databases, and scalable web frameworks.
 
-## Recommended IDE Setup
+🚀 Key Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+📝 Automated legal document generation through LLM orchestration.
 
-## Type Support for `.vue` Imports in TS
+🎙️ Audio & video transcription with AI.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+🔐 Secure authentication using JWT.
 
-## Customize configuration
+⚡ Built with Vue for reactivity and scalability.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+🎨 TailwindCSS for a modern, responsive UI.
 
-## Project Setup
+🌙 Dark/Light mode support with smooth transitions.
 
-```sh
-npm install
-```
+🔍 Smart jurisprudence search powered by embeddings and a vector database.
 
-### Compile and Hot-Reload for Development
+📂 Project Structure
+frontend/
+├── public/               # Static assets
+├── src/
+│   ├── assets/           # Images, icons, fonts
+│   ├── components/       # Reusable Vue components
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # Main views/pages
+│   ├── router/           # Vue Router configuration
+│   ├── store/            # State management (Pinia)
+│   ├── styles/           # Global styles (Tailwind, variables)
+│   └── main.ts           # App entry point
+├── index.html
+└── vite.config.ts
 
-```sh
-npm run dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
