@@ -1,24 +1,24 @@
-⚖️ AIURIS
+# ⚖️ AIURIS  
 
-AIURIS is an AI-powered platform for the judicial sector. Its main goal is to support professionals and institutions in jurisprudence search, automated legal document generation, and audio/video transcription, by integrating modern technologies such as Generative AI, vector databases, and scalable web frameworks.
+AIURIS is an **AI-powered platform for the judicial sector**. Its main goal is to support professionals and institutions in **jurisprudence search**, **automated legal document generation**, and **audio/video transcription**, by integrating modern technologies such as **Generative AI**, **vector databases**, and **scalable web frameworks**.  
 
-🚀 Key Features
+---
 
-📝 Automated legal document generation through LLM orchestration.
+## 🚀 Key Features  
 
-🎙️ Audio & video transcription with AI.
+- 📝 **Automated legal document generation** through LLM orchestration.  
+- 🎙️ **Audio & video transcription** with AI.  
+- 🔐 **Secure authentication** using JWT.  
+- ⚡ **Built with Vue** for reactivity and scalability.  
+- 🎨 **TailwindCSS** for a modern, responsive UI.  
+- 🌙 **Dark/Light mode support** with smooth transitions.  
+- 🔍 **Smart jurisprudence search** powered by embeddings and a vector database.  
 
-🔐 Secure authentication using JWT.
+---
 
-⚡ Built with Vue for reactivity and scalability.
+## 📂 Project Structure  
 
-🎨 TailwindCSS for a modern, responsive UI.
-
-🌙 Dark/Light mode support with smooth transitions.
-
-🔍 Smart jurisprudence search powered by embeddings and a vector database.
-
-📂 Project Structure
+```bash
 frontend/
 ├── public/               # Static assets
 ├── src/
@@ -32,4 +32,3 @@ frontend/
 │   └── main.ts           # App entry point
 ├── index.html
 └── vite.config.ts
-
