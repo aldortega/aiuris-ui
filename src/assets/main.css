@@ -1,10 +1,22 @@
+﻿@custom-variant dark (&:where(.dark *));
 @import 'tailwindcss';
 
 @theme {
   --font-sans: 'Geist', sans-serif;
   --color-aiuris: #2549b2;
 }
+
 html,
 body {
   @apply font-sans;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-900 antialiased;
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
 }

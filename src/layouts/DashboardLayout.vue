@@ -30,13 +30,13 @@ watch(isSidebarOpen, (value) => {
 </script>
 
 <template>
-  <div class="flex min-h-dvh flex-col bg-slate-100">
+  <div class="flex min-h-dvh flex-col bg-slate-100 transition-colors dark:bg-slate-950">
     <MainHeader @toggle-sidebar="toggleSidebar" />
 
     <div class="flex flex-1 overflow-hidden">
       <aside
-        class="flex-shrink-0 overflow-hidden bg-white transition-[width] duration-200 ease-in-out"
-        :class="isSidebarOpen ? 'w-64 border-r border-slate-200' : 'w-0 border-r-0'"
+        class="flex-shrink-0 overflow-hidden border-slate-200 bg-white transition-[width] duration-200 ease-in-out dark:bg-slate-900"
+        :class="isSidebarOpen ? 'w-64' : 'w-0 '"
       >
         <div v-if="isSidebarOpen" class="h-full">
           <MainSidebar />
@@ -44,7 +44,7 @@ watch(isSidebarOpen, (value) => {
       </aside>
 
       <main class="flex-1 overflow-y-auto">
-        <div class="mx-auto w-full max-w-6xl space-y-6 px-6 py-10">
+        <div class="mx-auto w-full max-w-6xl space-y-6 px-6 py-10 transition-colors">
           <slot />
         </div>
       </main>

@@ -8,7 +8,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/HomeView.vue'),
+      component: () => import('@/views/home/HomeView.vue'),
       meta: { requiresAuth: true },
     },
     {
@@ -26,13 +26,13 @@ const router = createRouter({
     {
       path: '/primer-inicio/cambiar-contrasena',
       name: 'first-login-password',
-      component: () => import('@/views/FirstLoginPasswordView.vue'),
+      component: () => import('@/views/auth/FirstLoginPasswordView.vue'),
       meta: { requiresAuth: true, allowFirstLogin: true },
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/views/LoginView.vue'),
+      component: () => import('@/views/auth/LoginView.vue'),
       meta: { guestOnly: true },
     },
     {
