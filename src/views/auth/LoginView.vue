@@ -146,11 +146,13 @@ async function onSubmit() {
                 >
               </div>
             </div>
-            <a
-              href="#"
+            <RouterLink
+              :to="{ name: 'forgot-password' }"
               class="text-sm font-medium text-aiuris transition hover:text-blue-900 dark:text-slate-300 dark:hover:text-blue-700"
-              >Olvidaste tu contraseña?</a
             >
+              Olvidaste tu contrasena?
+            </RouterLink>
+
           </div>
           <button
             :disabled="loading"

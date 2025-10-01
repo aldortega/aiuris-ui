@@ -42,6 +42,12 @@ const router = createRouter({
       meta: { guestOnly: true },
     },
     {
+      path: '/recuperar-contrasena',
+      name: 'forgot-password',
+      component: () => import('@/views/auth/ForgotPasswordView.vue'),
+      meta: { guestOnly: true },
+    },
+    {
       path: '/:catchAll(.*)',
       redirect: '/',
     },

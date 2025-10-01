@@ -30,7 +30,7 @@ function handlePromptSubmit(promptValue: string) {
 
     generatedContent.value = mockParagraphs.join('\n\n')
     isGenerating.value = false
-  }, 900)
+  }, 5000)///para probar 
 }
 
 function handleExport(format: 'docx' | 'pdf') {
