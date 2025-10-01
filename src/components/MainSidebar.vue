@@ -20,7 +20,7 @@ const items = computed<SidebarItem[]>(() => [
   { label: 'Inicio', to: { name: 'home' }, icon: Home },
   { label: 'Mi Perfil', to: { name: 'profile' }, icon: UserRound },
   { label: 'Preferencias', to: { name: 'preferences' }, icon: Settings },
-  { label: 'Documentos', hint: 'Proximamente', icon: FileText },
+  { label: 'Documentos', to: { name: 'document-generator' }, icon: FileText },
   { label: 'Reportes', hint: 'Proximamente', icon: BarChart3 },
   { label: 'Centro de ayuda', hint: 'Proximamente', icon: LifeBuoy },
 ])

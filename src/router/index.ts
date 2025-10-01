@@ -12,6 +12,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/documentos/generador',
+      name: 'document-generator',
+      component: () => import('@/views/documents/DocumentGeneratorView.vue'),
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/perfil',
       name: 'profile',
       component: () => import('@/views/ProfileView.vue'),
